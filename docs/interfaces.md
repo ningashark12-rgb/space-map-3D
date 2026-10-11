@@ -3,7 +3,7 @@
 **Project:** 3D Space Map with A* Pathfinding  
 **Team:**
 - Member A — Core & Graph
-- Member B — AI & Pathfinding
+- Member B — Search Algorithms & Pathfinding
 - Member C — 3D Rendering & UI
 
 ---
@@ -91,7 +91,7 @@ private:
 
 ```cpp
 // ============================================
-// ai/Pathfinder.h
+// Search Algorithms/Pathfinder.h
 // ============================================
 #pragma once
 #include <vector>
@@ -206,7 +206,7 @@ public:
 ```
 main.cpp
 ├── core/    (A provides)
-├── ai/      (B provides, depends on core)
+├── pathfinding/      (B provides, depends on core)
 ├── render/  (C provides, depends on core)
 └── ui/      (C provides, depends on core + ai)
 ```
