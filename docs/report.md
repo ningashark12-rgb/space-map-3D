@@ -109,11 +109,11 @@ Heuristic (abstract)
 | Technology | Purpose |
 |------------|---------|
 | **C++17** | Language |
-| **CMake** | Build system |
+| **Visual Studio** | IDE with built-in build system |
 | **SFML 2.5** | Window, input |
 | **OpenGL 3.3** | 3D rendering |
 | **GLM** | 3D math |
-| **Catch2** | Unit testing |
+| **Google Test** | Unit testing |
 | **GitHub** | Version control, PRs, task board |
 
 ### OOP Concepts
@@ -145,11 +145,12 @@ Heuristic (abstract)
 | `ui/` | Selection logic |
 
 ### Test Framework
-- **Catch2** — header-only unit testing framework
-- Run with: `ctest` in the build directory
+- **Google Test** — unit testing framework
+- Run tests from Visual Studio Test Explorer, or via command line
 
 ### Example Tests
 ```cpp
+#include <gtest/gtest.h>
 TEST(AStarTest, FindsShortestPath) { ... }
 TEST(AStarTest, ReturnsEmptyWhenNoPath) { ... }
 TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
@@ -168,7 +169,7 @@ TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
 ### Timeline (6 weeks)
 | Week | Focus |
 |------|-------|
-| 1 | Setup, Star class, Pathfinder base, CMake/window |
+| 1 | Setup, Star class, Pathfinder base, Visual Studio project |
 | 2 | StarMap, BFS, Dijkstra, shaders |
 | 3 | Data loading, A*, star rendering, camera |
 | 4 | Integration, path rendering, UI panel |
@@ -242,7 +243,7 @@ TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
 - A* Pathfinding: https://en.wikipedia.org/wiki/A*_search_algorithm
 - SFML Documentation: https://www.sfml-dev.org/documentation/
 - OpenGL Tutorials: https://learnopengl.com/
-- Catch2: https://github.com/catchorg/Catch2
+- Google Test: https://github.com/google/googletest
 
 ---
 ---
@@ -255,7 +256,7 @@ This appendix documents the actual development timeline and individual contribut
 - [Pending — no commits yet]
 
 ### Member B — Search algorithms & Pathfinding
-- Setup: GitHub repo, documentation, CMake, folder structure
+- Setup: GitHub repo, documentation, Visual Studio, folder structure
 - Oct 8: Created `docs/interfaces.md`, `docs/architecture.md`, `docs/report.md`
 - Oct 8: Created `CMakeLists.txt`, folder structure
 - Oct 8: Created 22 issues on GitHub Projects
