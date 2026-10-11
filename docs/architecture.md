@@ -7,7 +7,7 @@ The project is a **3D Space Map** with A* pathfinding, built in C++ using OpenGL
 | Module | Responsibility | Owner |
 |--------|---------------|-------|
 | `core/` | Data model — stars, graph structure | A |
-| `ai/` | Pathfinding — A*, Dijkstra, BFS | B |
+| `pathfinding/` | Pathfinding — A*, Dijkstra, BFS | B |
 | `render/` | OpenGL rendering, camera | C |
 | `ui/` | User interface, selection | C |
 
@@ -18,7 +18,7 @@ The project is a **3D Space Map** with A* pathfinding, built in C++ using OpenGL
 ```
 main.cpp
 ├── core/    (A provides)
-├── ai/      (B provides, depends on core)
+├── pathfinding/      (B provides, depends on core)
 ├── render/  (C provides, depends on core)
 └── ui/      (C provides, depends on core + ai)
 ```
@@ -133,7 +133,7 @@ struct PathResult {
 ```
 src/
 ├── core/       (A)
-├── ai/         (B)
+├── pathfinding/         (B)
 ├── render/     (C)
 ├── ui/         (C)
 └── main.cpp
@@ -160,7 +160,7 @@ docs/           (All)
 | Module | Tests |
 |--------|-------|
 | `core/` | Star creation, StarMap graph, data loading |
-| `ai/` | Pathfinder correctness, heuristic admissibility |
+| `pathfinding/` | Pathfinder correctness, heuristic admissibility |
 | `render/` | Camera matrices, shader compilation |
 | `ui/` | Selection logic |
 
