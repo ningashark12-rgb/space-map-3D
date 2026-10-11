@@ -147,11 +147,11 @@ docs/           (All)
 
 ## Build System
 
-- **CMake** — cross-platform build
+- **Visual Studio** — IDE with built-in build system (no CMake)
 - **SFML** — window and input
 - **OpenGL** — 3D rendering
 - **GLM** — 3D math
-- **Catch2** — unit testing
+- **Googel Test** — unit testing
 
 ---
 
