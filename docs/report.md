@@ -256,11 +256,17 @@ This appendix documents the actual development timeline and individual contribut
 - [Pending — no commits yet]
 
 ### Member B — Search algorithms & Pathfinding
-- Setup: GitHub repo, documentation, Visual Studio, folder structure
-- Oct 8: Created `docs/interfaces.md`, `docs/architecture.md`, `docs/report.md`
-- Oct 8: Created `CMakeLists.txt`, folder structure
-- Oct 8: Created 22 issues on GitHub Projects
-- 
+- Oct 8: Created GitHub repository with README, LICENSE, .gitignore
+- Oct 8: Authored `docs/interfaces.md` (function signature agreements)
+- Oct 8: Authored `docs/architecture.md` (module design, OOP/STL/templates plan)
+- Oct 8: Authored `docs/report.md` (final report skeleton)
+- Oct 8: Set up folder structure (src/core, src/pathfinding, src/render, src/ui, tests, assets)
+- Oct 8: Created GitHub Projects board with To Do / In Progress / Done columns
+- Oct 8: Created and assigned 22 issues to team members
+- Oct 10: Renamed `src/ai/` → `src/pathfinding/` (pathfinding is not AI)
+- Oct 10: Updated docs to reflect module rename
+- Oct 10: Switched build system from CMake to Visual Studio
+- Oct 10: Switched testing framework from Catch2 to Google Test
 
 ### Member C — 3D Rendering & UI
 - Oct 9: Pushed `src/implement openGL Window.cpp` directly to `main`
