@@ -245,8 +245,31 @@ TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
 - Catch2: https://github.com/catchorg/Catch2
 
 ---
+---
 
-## See Also
+## Appendix: Development Log
+
+This appendix documents the actual development timeline and individual contributions.
+
+### Member A — Core & Graph
+- [Pending — no commits yet]
+
+### Member B — AI & Pathfinding
+- Setup: GitHub repo, documentation, CMake, folder structure
+- Oct 8: Created `docs/interfaces.md`, `docs/architecture.md`, `docs/report.md`
+- Oct 8: Created `CMakeLists.txt`, folder structure
+- Oct 8: Created 22 issues on GitHub Projects
+- 
+
+### Member C — 3D Rendering & UI
+- Oct 9: Pushed `src/implement openGL Window.cpp` directly to `main`
+  - File is in wrong folder (`src/` instead of `src/render/`)
+  - Uses legacy OpenGL (`<GL/gl.h>`), not modern OpenGL 3.3+
+  - Uses Windows-specific header (`<windows.h>`) — not cross-platform
+  - Uses global variables instead of OOP classes
+  - Does not match `docs/interfaces.md`
+  - Redo requested — pending
+
 
 - [`docs/interfaces.md`](interfaces.md) — Function signatures
 - [`docs/architecture.md`](architecture.md) — Architecture details
