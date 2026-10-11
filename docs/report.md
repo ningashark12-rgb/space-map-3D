@@ -3,7 +3,7 @@
 **Course:** PPOIS  
 **Team:**
 - Member A — Core & Graph
-- Member B — AI & Pathfinding
+- Member B — Search algorithm & Pathfinding
 - Member C — 3D Rendering & UI
 
 **Date:** [fill in when submitting]  
@@ -20,7 +20,7 @@ The goal is to demonstrate:
 - **STL** — containers, algorithms, smart pointers
 - **C++ Templates** — generic graph, pathfinder, and result types
 - **3D Rendering** — OpenGL with SFML
-- **Pathfinding AI** — A* algorithm with admissible heuristics
+- **Pathfinding algorithm** — A* algorithm with admissible heuristics
 
 ---
 
@@ -50,7 +50,7 @@ The goal is to demonstrate:
 | Module | Responsibility | Owner |
 |--------|---------------|-------|
 | `core/` | Data model — stars, graph structure | A |
-| `ai/` | Pathfinding — A*, Dijkstra, BFS | B |
+| `pathfinding/` | Pathfinding — A*, Dijkstra, BFS | B |
 | `render/` | OpenGL rendering, camera | C |
 | `ui/` | User interface, selection | C |
 
@@ -140,7 +140,7 @@ Heuristic (abstract)
 | Module | Tests |
 |--------|-------|
 | `core/` | Star creation, StarMap graph, data loading |
-| `ai/` | Pathfinder correctness, heuristic admissibility |
+| `pathfinding/` | Pathfinder correctness, heuristic admissibility |
 | `render/` | Camera matrices, shader compilation |
 | `ui/` | Selection logic |
 
@@ -254,7 +254,7 @@ This appendix documents the actual development timeline and individual contribut
 ### Member A — Core & Graph
 - [Pending — no commits yet]
 
-### Member B — AI & Pathfinding
+### Member B — Search algorithms & Pathfinding
 - Setup: GitHub repo, documentation, CMake, folder structure
 - Oct 8: Created `docs/interfaces.md`, `docs/architecture.md`, `docs/report.md`
 - Oct 8: Created `CMakeLists.txt`, folder structure
