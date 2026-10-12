@@ -106,7 +106,7 @@ public:
 };
 
 // ============================================
-// ai/PathResult.h
+// pathfinding/PathResult.h
 // ============================================
 #pragma once
 #include <vector>
@@ -130,7 +130,7 @@ struct PathResult {
 };
 
 // ============================================
-// ai/AStarPathfinder.h
+// pathfinding/AStarPathfinder.h
 // ============================================
 #pragma once
 #include "Pathfinder.h"
@@ -148,7 +148,7 @@ private:
 };
 
 // ============================================
-// ai/Heuristic.h
+// pathfinding/Heuristic.h
 // ============================================
 #pragma once
 #include "core/Star.h"
