@@ -87,7 +87,7 @@ private:
 
 ---
 
-## Member B Provides (AI & Pathfinding)
+## Member B Provides (Search Algorithms & Pathfinding)
 
 ```cpp
 // ============================================
