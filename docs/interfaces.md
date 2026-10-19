@@ -101,7 +101,7 @@ private:
 class Pathfinder {
 public:
     virtual ~Pathfinder() = default;
-    virtual std::vector<Star*> findPath(Star* start, Star* goal) = 0;
+    virtual std::vector<Star*> findPath(StarMap* map, Star* start, Star* goal) = 0;
     virtual std::string name() const = 0;
 };
 
