@@ -254,7 +254,7 @@ This appendix documents the actual development timeline and individual contribut
 
 ### Member A — Core & Graph
 - [Pending — no commits yet]
-
+- Oct 13: commited a edit to README.md and it wasn't needed so member B edited it again to it's original form 
 ### Member B — Search algorithms & Pathfinding
 - Oct 8: Created GitHub repository with README, LICENSE, .gitignore
 - Oct 8: Authored `docs/interfaces.md` (function signature agreements)
@@ -267,7 +267,12 @@ This appendix documents the actual development timeline and individual contribut
 - Oct 10: Updated docs to reflect module rename
 - Oct 10: Switched build system from CMake to Visual Studio
 - Oct 10: Switched testing framework from Catch2 to Google Test
-
+- Oct 19: Implemented all pathfinding headers (`Pathfinder.h`, `Heuristic.h`, `PathResult.h`, `AStarPathfinder.h`)
+- Oct 19: Implemented algorithms (`BFSPathfinder.cpp`, `DijkstraPathfinder.cpp`, `AStarPathfinder.cpp`)
+- Oct 19: Set up Google Test framework and wrote initial unit tests
+- Oct 19: Updated `interfaces.md` to pass `StarMap*` to `findPath()`
+- Oct 19: **BLOCKED**: Cannot compile or run full integration tests because `src/core/Star.h` and `StarMap.h` (Member A) are not yet in the repository. 
+- Oct 19: Note: Current unit tests are edge-case skeletons. Full graph-traversal tests will be added as soon as Member A pushes the Core module.
 ### Member C — 3D Rendering & UI
 - Oct 9: Pushed `src/implement openGL Window.cpp` directly to `main`
   - File is in wrong folder (`src/` instead of `src/render/`)
