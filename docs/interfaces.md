@@ -91,7 +91,7 @@ private:
 
 ```cpp
 // ============================================
-// Search Algorithms/Pathfinder.h
+// Pathfinding/Pathfinder.h
 // ============================================
 #pragma once
 #include <vector>
@@ -140,7 +140,7 @@ struct PathResult {
 class AStarPathfinder : public Pathfinder {
 public:
     AStarPathfinder(std::unique_ptr<Heuristic> heuristic);
-    std::vector<Star*> findPath(Star* start, Star* goal) override;
+    std::vector<Star*> findPath(StarMap* map, Star* start, Star* goal) override;
     std::string name() const override { return "A*"; }
 
 private:
