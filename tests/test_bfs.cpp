@@ -1,10 +1,10 @@
 #include <gtest/gtest.h>
-#include "pathfinding/BFSPathfinder.h"
+#include "pathFinding/BFSPathFinder.h"
 #include "core/StarMap.h"
 
 // A simple test to make sure BFS returns an empty path if start == goal
 TEST(BFSTest, ReturnsStartIfStartIsGoal) {
-    BFSPathfinder bfs;
+    BFSPathFinder bfs;
     
     // NOTE: This is a "mock" test. When A finishes StarMap, we can make this real.
     // For now, we are testing the logic of the algorithm.
