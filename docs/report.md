@@ -3,8 +3,7 @@
 **Course:** PPOIS  
 **Team:**
 - Member A — Core & Graph
-- Member B — Search algorithm & Pathfinding
-- Member C — 3D Rendering & UI
+- Member B — Search algorithms & 3D Rendering
 
 **Date:** [fill in when submitting]  
 **Repository:** https://github.com/ningashark12-rgb/space-map-3D
@@ -51,8 +50,8 @@ The goal is to demonstrate:
 |--------|---------------|-------|
 | `core/` | Data model — stars, graph structure | A |
 | `pathfinding/` | Pathfinding — A*, Dijkstra, BFS | B |
-| `render/` | OpenGL rendering, camera | C |
-| `ui/` | User interface, selection | C |
+| `render/` | OpenGL rendering, camera | B |
+| `ui/` | User interface, selection | B |
 
 See [`docs/architecture.md`](architecture.md) for full details.
 
@@ -90,15 +89,11 @@ Heuristic (abstract)
 - `BFSPathfinder` — Breadth-first search
 - `Heuristic` — abstract + Euclidean implementation
 - `PathResult<T>` — templated result type
-
-### Render Module (C)
 - `Renderer` — draws stars and paths
 - `Camera` — 3D camera with WASD + mouse controls
 - `Shader` — OpenGL shader wrapper
 - `StarRenderer` — renders individual stars
 - `SphereMesh` — 3D sphere geometry
-
-### UI Module (C)
 - `UI` — info panel, filters
 - `Selection` — click-to-select stars
 
@@ -179,11 +174,11 @@ TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
 ### Integration Points
 | When | What | From → To |
 |------|------|-----------|
-| Week 1 | Star class ready | A → B, C |
+| Week 1 | Star class ready | A → B |
 | Week 2 | StarMap ready | A → B |
-| Week 3 | A* findPath ready | B → C |
-| Week 4 | Camera ready | C → A, B |
-| Week 5 | Full integration | All |
+| Week 3 | A* findPath ready | B (Internal) |
+| Week 4 | Camera ready | B(Internal) |
+| Week 5 | Full integration | Both |
 
 ---
 
@@ -195,14 +190,11 @@ TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
 - Wrote unit tests for core module
 - [add specific commits/PRs]
 
-### Member B — AI & Pathfinding
+### Member B — Search & Rendering 
 - Implemented `Pathfinder` base class
 - Implemented A*, Dijkstra, BFS
 - Implemented heuristics
 - Wrote unit tests for AI module
-- [add specific commits/PRs]
-
-### Member C — 3D Rendering & UI
 - Implemented OpenGL window, shaders
 - Implemented `Camera`, `StarRenderer`
 - Implemented `UI`, `Selection`
@@ -253,9 +245,8 @@ TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
 This appendix documents the actual development timeline and individual contributions.
 
 ### Member A — Core & Graph
-- [Pending — no commits yet]
-- Oct 13: commited a edit to README.md and it wasn't needed so member B edited it again to it's original form 
-### Member B — Search algorithms & Pathfinding
+
+### Member B — Search algorithms & Pathfinding & Rendering
 - Oct 8: Created GitHub repository with README, LICENSE, .gitignore
 - Oct 8: Authored `docs/interfaces.md` (function signature agreements)
 - Oct 8: Authored `docs/architecture.md` (module design, OOP/STL/templates plan)
@@ -273,16 +264,6 @@ This appendix documents the actual development timeline and individual contribut
 - Oct 19: Updated `interfaces.md` to pass `StarMap*` to `findPath()`
 - Oct 19: **BLOCKED**: Cannot compile or run full integration tests because `src/core/Star.h` and `StarMap.h` (Member A) are not yet in the repository. 
 - Oct 19: Note: Current unit tests are edge-case skeletons. Full graph-traversal tests will be added as soon as Member A pushes the Core module.
-### Member C — 3D Rendering & UI
-- Oct 9: Pushed `src/implement openGL Window.cpp` directly to `main`
-  - File is in wrong folder (`src/` instead of `src/render/`)
-  - Uses legacy OpenGL (`<GL/gl.h>`), not modern OpenGL 3.3+
-  - Uses Windows-specific header (`<windows.h>`) — not cross-platform
-  - Uses global variables instead of OOP classes
-  - Does not match `docs/interfaces.md`
-  - Redo requested — pending
 
+- Oct 23: Group restructured. Member C and original Member A removed from the repository due to lack of contribution. Member B took over the Rendering module. A new Member A joined to take over the Core module.
 
-- [`docs/interfaces.md`](interfaces.md) — Function signatures
-- [`docs/architecture.md`](architecture.md) — Architecture details
-- [`README.md`](../README.md) — Project overview
