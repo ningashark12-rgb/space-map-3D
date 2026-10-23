@@ -1,11 +1,11 @@
 #include <gtest/gtest.h>
-#include "pathfinding/AStarPathfinder.h"
-#include "pathfinding/Heuristic.h"
+#include "pathFinding/AStarPathFinder.h"
+#include "pathFinding/Heuristic.h"
 #include <memory>
 
 TEST(AStarTest, HandlesNullInputs) {
     auto heuristic = std::make_unique<EuclideanHeuristic>();
-    AStarPathfinder astar(std::move(heuristic));
+    AStarPathFinder astar(std::move(heuristic));
     
     EXPECT_TRUE(astar.findPath(nullptr, nullptr, nullptr).empty());
 }
