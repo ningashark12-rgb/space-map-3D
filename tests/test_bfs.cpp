@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "pathfinding/BFSPathFinder.h"
+#include "pathfinding/BFSPathfinder.h"
 #include "core/StarMap.h"
 
 // A simple test to make sure BFS returns an empty path if start == goal

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "pathfinding/DijkstraPathFinder.h"
+#include "pathfinding/DijkstraPathfinder.h"
 
 TEST(DijkstraTest, HandlesNullInputs) {
     DijkstraPathFinder dijkstra;
