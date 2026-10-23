@@ -3,9 +3,7 @@
 **Project:** 3D Space Map with A* Pathfinding  
 **Team:**
 - Member A — Core & Graph
-- Member B — Search Algorithms & Pathfinding
-- Member C — 3D Rendering & UI
-
+- Member B — Search Algorithms & Rendering
 ---
 
 ## Purpose
@@ -163,13 +161,6 @@ class EuclideanHeuristic : public Heuristic {
 public:
     float estimate(Star* a, Star* b) const override;
 };
-```
-
----
-
-## Member C Provides (3D Rendering & UI)
-
-```cpp
 // ============================================
 // render/Camera.h
 // ============================================
@@ -197,6 +188,10 @@ public:
                              const std::vector<Star*>& stars,
                              const Camera& camera);
 };
+
+---
+
+
 ```
 
 ---
@@ -207,11 +202,11 @@ public:
 main.cpp
 ├── core/    (A provides)
 ├── pathfinding/      (B provides, depends on core)
-├── render/  (C provides, depends on core)
-└── ui/      (C provides, depends on core + ai)
+├── render/  (B provides, depends on core)
+└── ui/      (B provides, depends on core + pathfinding)
 ```
 
-**A is the foundation. B and C both depend on A.**
+**A is the foundation. B depend on A.**
 
 ---
 
@@ -219,11 +214,11 @@ main.cpp
 
 | When | What | From → To |
 |------|------|-----------|
-| Week 1 Day 7 | Star class ready | A → B, C |
+| Week 1 Day 7 | Star class ready | A → B |
 | Week 2 Day 7 | StarMap ready | A → B |
-| Week 3 Day 1 | A* findPath ready | B → C |
-| Week 3 Day 7 | Camera ready | C → A, B |
-| Week 4 Day 1 | Full integration | All |
+| Week 3 Day 1 | A* findPath ready | B(Internal)|
+| Week 3 Day 7 | Camera ready |  B(Internal) |
+| Week 4 Day 1 | Full integration | Both |
 
 **Integrate weekly. Don't wait until the end.**
 
@@ -249,4 +244,3 @@ By working on this project, we agree to these interfaces:
 
 - **Member A:** _________________ Date: _______
 - **Member B:** _________________ Date: _______
-- **Member C:** _________________ Date: _______
