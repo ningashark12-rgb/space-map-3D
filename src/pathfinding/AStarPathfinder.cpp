@@ -1,4 +1,4 @@
-#include "AStarPathfinder.h"
+#include "AStarPathFinder.h"
 #include <queue>
 #include <unordered_map>
 #include <algorithm>
@@ -18,11 +18,11 @@ struct CompareFScore {
 };
 
 // Constructor: initialize the heuristic
-AStarPathfinder::AStarPathfinder(std::unique_ptr<Heuristic> heuristic) 
+AStarPathFinder::AStarPathFinder(std::unique_ptr<Heuristic> heuristic) 
     : heuristic_(std::move(heuristic)) {
 }
 
-std::vector<Star*> AStarPathfinder::findPath(StarMap* map, Star* start, Star* goal) {
+std::vector<Star*> AStarPathFinder::findPath(StarMap* map, Star* start, Star* goal) {
     if (!map || !start || !goal) return {};
     if (start == goal) return { start };
 

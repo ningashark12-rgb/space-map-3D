@@ -1,13 +1,13 @@
 #include <gtest/gtest.h>
-#include "pathfinding/DijkstraPathfinder.h"
+#include "pathfinding/DijkstraPathFinder.h"
 
 TEST(DijkstraTest, HandlesNullInputs) {
-    DijkstraPathfinder dijkstra;
+    DijkstraPathFinder dijkstra;
     EXPECT_TRUE(dijkstra.findPath(nullptr, nullptr, nullptr).empty());
 }
 
 TEST(DijkstraTest, HandlesStartEqualsGoal) {
-    DijkstraPathfinder dijkstra;
+    DijkstraPathFinder dijkstra;
     Star* start = new Star(); // Fake star
     std::vector<Star*> path = dijkstra.findPath(nullptr, start, start);
     EXPECT_EQ(path.size(), 1);

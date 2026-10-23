@@ -1,7 +1,7 @@
 #pragma once
-#include "Pathfinder.h"
+#include "PathFinder.h"
 
-class DijkstraPathfinder : public Pathfinder {
+class DijkstraPathFinder : public PathFinder {
 public:
     std::vector<Star*> findPath(StarMap* map, Star* start, Star* goal) override;
     std::string name() const override { return "Dijkstra"; }

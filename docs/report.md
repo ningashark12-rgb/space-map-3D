@@ -18,7 +18,7 @@ The project is a **3D Space Map** — an interactive visualization of a star fie
 The goal is to demonstrate:
 - **OOP** — abstract base classes, inheritance, polymorphism, strategy pattern
 - **STL** — containers, algorithms, smart pointers
-- **C++ Templates** — generic graph, pathfinder, and result types
+- **C++ Templates** — generic graph, PathFinder, and result types
 - **3D Rendering** — OpenGL with SFML
 - **Pathfinding algorithm** — A* algorithm with admissible heuristics
 
@@ -63,10 +63,10 @@ CelestialObject (abstract)
 ├── Star
 └── Nebula
 
-Pathfinder (abstract)
-├── AStarPathfinder
-├── DijkstraPathfinder
-└── BFSPathfinder
+PathFinder (abstract)
+├── AStarPathFinder
+├── DijkstraPathFinder
+└── BFSPathFinder
 
 Heuristic (abstract)
 ├── EuclideanHeuristic
@@ -84,10 +84,10 @@ Heuristic (abstract)
 - `StarData` — loads stars from CSV or generates randomly
 
 ### AI Module (B)
-- `Pathfinder` — abstract base class
-- `AStarPathfinder` — A* with configurable heuristic
-- `DijkstraPathfinder` — Dijkstra's algorithm
-- `BFSPathfinder` — Breadth-first search
+- `PathFinder` — abstract base class
+- `AStarPathFinder` — A* with configurable heuristic
+- `DijkstraPathFinder` — Dijkstra's algorithm
+- `BFSPathFinder` — Breadth-first search
 - `Heuristic` — abstract + Euclidean implementation
 - `PathResult<T>` — templated result type
 
@@ -119,7 +119,7 @@ Heuristic (abstract)
 ### OOP Concepts
 - Abstract base classes, inheritance, polymorphism
 - Encapsulation, composition
-- Strategy pattern (pathfinders)
+- Strategy pattern (PathFinders)
 - Factory pattern (star creation)
 - Observer pattern (UI updates)
 
@@ -129,7 +129,7 @@ Heuristic (abstract)
 - `std::sort`, `std::find_if`, `std::transform`
 
 ### Templates
-- `Graph<T>`, `Pathfinder<T>`, `Heuristic<T>`, `PathResult<T>`
+- `Graph<T>`, `PathFinder<T>`, `Heuristic<T>`, `PathResult<T>`
 
 ---
 
@@ -140,7 +140,7 @@ Heuristic (abstract)
 | Module | Tests |
 |--------|-------|
 | `core/` | Star creation, StarMap graph, data loading |
-| `pathfinding/` | Pathfinder correctness, heuristic admissibility |
+| `pathfinding/` | PathFinder correctness, heuristic admissibility |
 | `render/` | Camera matrices, shader compilation |
 | `ui/` | Selection logic |
 
@@ -169,7 +169,7 @@ TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
 ### Timeline (6 weeks)
 | Week | Focus |
 |------|-------|
-| 1 | Setup, Star class, Pathfinder base, Visual Studio project |
+| 1 | Setup, Star class, PathFinder base, Visual Studio project |
 | 2 | StarMap, BFS, Dijkstra, shaders |
 | 3 | Data loading, A*, star rendering, camera |
 | 4 | Integration, path rendering, UI panel |
@@ -196,7 +196,7 @@ TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
 - [add specific commits/PRs]
 
 ### Member B — AI & Pathfinding
-- Implemented `Pathfinder` base class
+- Implemented `PathFinder` base class
 - Implemented A*, Dijkstra, BFS
 - Implemented heuristics
 - Wrote unit tests for AI module
@@ -232,7 +232,7 @@ TEST(HeuristicTest, EuclideanIsAdmissible) { ... }
 
 - **OOP depth** — abstract base classes and design patterns make the code extensible
 - **STL usage** — containers and algorithms simplify complex logic
-- **Templates** — generic graph and pathfinder allow reuse
+- **Templates** — generic graph and PathFinder allow reuse
 - **Teamwork** — GitHub branches and PRs enable parallel work
 - **Challenges** — [add what was hard]
 

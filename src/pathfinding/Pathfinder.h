@@ -4,9 +4,9 @@
 #include "../core/Star.h"
 #include "../core/StarMap.h"
 
-class Pathfinder {
+class PathFinder {
 public:
-    virtual ~Pathfinder() = default;
+    virtual ~PathFinder() = default;
     
     // MUST HAVE StarMap* map HERE
     virtual std::vector<Star*> findPath(StarMap* map, Star* start, Star* goal) = 0;

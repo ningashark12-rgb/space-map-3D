@@ -1,17 +1,17 @@
 // ============================================
-// pathfinding/AStarPathfinder.h
+// pathfinding/AStarPathFinder.h
 // A* Search Algorithm
 // ============================================
 #pragma once
-#include "Pathfinder.h"
+#include "PathFinder.h"
 #include "Heuristic.h"
 #include <memory>
 
-class AStarPathfinder : public Pathfinder {
+class AStarPathFinder : public PathFinder {
 public:
-    AStarPathfinder(std::unique_ptr<Heuristic> heuristic);
+    AStarPathFinder(std::unique_ptr<Heuristic> heuristic);
     
-    // Overrides Pathfinder
+    // Overrides PathFinder
     std::vector<Star*> findPath(Star* start, Star* goal) override;
     std::string name() const override { return "A*"; }
 

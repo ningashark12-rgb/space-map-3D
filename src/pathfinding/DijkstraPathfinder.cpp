@@ -1,4 +1,4 @@
-#include "DijkstraPathfinder.h"
+#include "DijkstraPathFinder.h"
 #include <queue>
 #include <unordered_map>
 #include <algorithm>
@@ -11,7 +11,7 @@ struct CompareDistance {
     }
 };
 
-std::vector<Star*> DijkstraPathfinder::findPath(StarMap* map, Star* start, Star* goal) {
+std::vector<Star*> DijkstraPathFinder::findPath(StarMap* map, Star* start, Star* goal) {
     if (!map || !start || !goal) return {};
     if (start == goal) return { start };
 

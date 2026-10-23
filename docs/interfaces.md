@@ -91,16 +91,16 @@ private:
 
 ```cpp
 // ============================================
-// Search Algorithms/Pathfinder.h
+// Search Algorithms/PathFinder.h
 // ============================================
 #pragma once
 #include <vector>
 #include <string>
 #include "core/Star.h"
 
-class Pathfinder {
+class PathFinder {
 public:
-    virtual ~Pathfinder() = default;
+    virtual ~PathFinder() = default;
     virtual std::vector<Star*> findPath(StarMap* map, Star* start, Star* goal) = 0;
     virtual std::string name() const = 0;
 };
@@ -130,16 +130,16 @@ struct PathResult {
 };
 
 // ============================================
-// pathfinding/AStarPathfinder.h
+// pathfinding/AStarPathFinder.h
 // ============================================
 #pragma once
-#include "Pathfinder.h"
+#include "PathFinder.h"
 #include "Heuristic.h"
 #include <memory>
 
-class AStarPathfinder : public Pathfinder {
+class AStarPathFinder : public PathFinder {
 public:
-    AStarPathfinder(std::unique_ptr<Heuristic> heuristic);
+    AStarPathFinder(std::unique_ptr<Heuristic> heuristic);
     std::vector<Star*> findPath(Star* start, Star* goal) override;
     std::string name() const override { return "A*"; }
 
