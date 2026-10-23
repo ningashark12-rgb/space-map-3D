@@ -8,8 +8,8 @@ The project is a **3D Space Map** with A* pathfinding, built in C++ using OpenGL
 |--------|---------------|-------|
 | `core/` | Data model — stars, graph structure | A |
 | `pathfinding/` | Pathfinding — A*, Dijkstra, BFS | B |
-| `render/` | OpenGL rendering, camera | C |
-| `ui/` | User interface, selection | C |
+| `render/` | OpenGL rendering, camera | B |
+| `ui/` | User interface, selection | B |
 
 ---
 
@@ -19,11 +19,11 @@ The project is a **3D Space Map** with A* pathfinding, built in C++ using OpenGL
 main.cpp
 ├── core/    (A provides)
 ├── pathfinding/      (B provides, depends on core)
-├── render/  (C provides, depends on core)
-└── ui/      (C provides, depends on core + ai)
+├── render/  (B provides, depends on core)
+└── ui/      (B provides, depends on core + pathfinding)
 ```
 
-**A is the foundation. B and C both depend on A.**
+**A is the foundation. B depends on A.**
 
 ---
 
@@ -118,11 +118,11 @@ struct PathResult {
 
 | When | What | From → To |
 |------|------|-----------|
-| Week 1 | Star class ready | A → B, C |
+| Week 1 | Star class ready | A → B |
 | Week 2 | StarMap ready | A → B |
-| Week 3 | A* findPath ready | B → C |
-| Week 4 | Camera ready | C → A, B |
-| Week 5 | Full integration | All |
+| Week 3 | A* findPath ready | B(Intenal) |
+| Week 4 | Camera ready | B(Internal) |
+| Week 5 | Full integration | Both |
 
 **Integrate weekly. Don't wait until the end.**
 
@@ -134,12 +134,12 @@ struct PathResult {
 src/
 ├── core/       (A)
 ├── pathfinding/         (B)
-├── render/     (C)
-├── ui/         (C)
+├── render/     (B)
+├── ui/         (B)
 └── main.cpp
 
 tests/          (All)
-assets/         (C)
+assets/         (B)
 docs/           (All)
 ```
 
@@ -151,7 +151,7 @@ docs/           (All)
 - **SFML** — window and input
 - **OpenGL** — 3D rendering
 - **GLM** — 3D math
-- **Googel Test** — unit testing
+- **Google Test** — unit testing
 
 ---
 
