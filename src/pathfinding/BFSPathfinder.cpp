@@ -1,4 +1,4 @@
-#include "BFSPathFinder.h"
+#include "pathfinding/BFSPathfinder.h"
 #include <queue>
 #include <unordered_set>
 #include <unordered_map>
