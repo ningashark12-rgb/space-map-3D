@@ -1,15 +1,11 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "../core/Star.h"
-#include "../core/StarMap.h"
+#include "src/core/StarMap.h"
 
-class PathFinder {
+class Pathfinder {
 public:
-    virtual ~PathFinder() = default;
-    
-    // MUST HAVE StarMap* map HERE
+    virtual ~Pathfinder() = default;
     virtual std::vector<Star*> findPath(StarMap* map, Star* start, Star* goal) = 0;
-    
     virtual std::string name() const = 0;
 };
