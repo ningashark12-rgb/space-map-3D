@@ -1,7 +1,8 @@
-#include "AStarPathFinder.h"
+#include "AStarPathfinder.h"
 #include <queue>
 #include <unordered_map>
 #include <algorithm>
+#include <stdexcept> // Added for Exception Handling
 
 // We need a struct to hold nodes in the priority queue
 struct AStarNode {
@@ -18,12 +19,19 @@ struct CompareFScore {
 };
 
 // Constructor: initialize the heuristic
-AStarPathFinder::AStarPathFinder(std::unique_ptr<Heuristic> heuristic) 
+AStarPathfinder::AStarPathfinder(std::unique_ptr<Heuristic> heuristic) 
     : heuristic_(std::move(heuristic)) {
 }
 
-std::vector<Star*> AStarPathFinder::findPath(StarMap* map, Star* start, Star* goal) {
-    if (!map || !start || !goal) return {};
+std::vector<Star*> AStarPathfinder::findPath(StarMap* map, Star* start, Star* goal) {
+    // ============================================
+    // EXCEPTION HANDLING (Logical Checks)
+    // ============================================
+    if (!map) throw std::invalid_argument("AStarPathfinder: StarMap pointer is null.");
+    if (!start) throw std::invalid_argument("AStarPathfinder: Start star pointer is null.");
+    if (!goal) throw std::invalid_argument("AStarPathfinder: Goal star pointer is null.");
+    if (!heuristic_) throw std::runtime_error("AStarPathfinder: Heuristic is not initialized.");
+
     if (start == goal) return { start };
 
     // Priority queue stores AStarNodes
