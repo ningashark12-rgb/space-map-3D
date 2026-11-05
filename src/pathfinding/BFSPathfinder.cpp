@@ -1,10 +1,10 @@
-#include "pathfinding/BFSPathfinder.h"
+#include "BFSPathfinder.h"
 #include <queue>
 #include <unordered_set>
 #include <unordered_map>
 #include <algorithm>
 
-std::vector<Star*> BFSPathFinder::findPath(StarMap* map, Star* start, Star* goal) {
+std::vector<Star*> BFSPathfinder::findPath(StarMap* map, Star* start, Star* goal) {
     if (!map || !start || !goal) return {};
     if (start == goal) return { start };
 

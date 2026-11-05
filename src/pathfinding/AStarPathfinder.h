@@ -10,11 +10,11 @@
 #include "PathResult.h"
 #include "../core/StarMap.h"
 
-class AStarPathFinder : public PathFinder {
+class AStarPathfinder : public Pathfinder {
 public:
-    AStarPathFinder(std::unique_ptr<Heuristic> heuristic);
+    AStarPathfinder(std::unique_ptr<Heuristic> heuristic);
         // Using our C++ Template to return the result safely!
-    PathResult<std::vector<Star*>> findPathResult(StarMap* map, Star* start, Star* goal);t
+    PathResult<std::vector<Star*>> findPathResult(StarMap* map, Star* start, Star* goal);
     
     // Overrides PathFinder
     std::vector<Star*> findPath(StarMap* map, Star* start, Star* goal) override;

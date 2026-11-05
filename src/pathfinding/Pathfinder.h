@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "src/core/StarMap.h"
+#include "../core/StarMap.h"
 
 class Pathfinder {
 public:

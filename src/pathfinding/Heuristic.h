@@ -3,8 +3,9 @@
 // Abstract base for heuristics used by A*
 // ============================================
 #pragma once
-#include "src/core/Star.h"
 #include <cmath> // for std::sqrt
+#include "../core/Star.h"
+
 
 class Heuristic {
 public:
