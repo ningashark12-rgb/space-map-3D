@@ -67,3 +67,15 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Compiled Executables
+*.exe
+*.o
+*.obj
+test_runner
+
+# Visual Studio / VS Code build folders
+build/
+Debug/
+Release/
+.vs/
