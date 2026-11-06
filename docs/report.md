@@ -262,14 +262,14 @@ This appendix documents the actual development timeline and individual contribut
 - Oct 19: Implemented algorithms (`BFSPathfinder.cpp`, `DijkstraPathfinder.cpp`, `AStarPathfinder.cpp`)
 - Oct 19: Set up Google Test framework and wrote initial unit tests
 - Oct 19: Updated `interfaces.md` to pass `StarMap*` to `findPath()`
+- Oct 19: **BLOCKED**: Cannot compile or run full integration tests because `src/core/Star.h` and `StarMap.h` (Member A) are not yet in the repository. 
+- Oct 19: Note: Current unit tests are edge-case skeletons. Full graph-traversal tests will be added as soon as Member A pushes the Core module.
+
+- Oct 23: Group restructured. Member C and original Member A removed from the repository due to lack of contribution. Member B took over the Rendering module. A new Member A joined to take over the Core module.
+
 - Nov 5: Implemented Google Test framework across all pathfinding algorithms.
 - Nov 5: Created a temporary Mock Core module (`Star.h`, `StarMap.h`) to allow integration testing while waiting for the actual Core module.
 - Nov 5: Set up local C++ build environment (MSYS2, g++, MinGW) to compile and run tests directly from the terminal.
 - Nov 5: **Successfully compiled and passed all 5 unit tests** (AStar, Dijkstra, BFS, EuclideanHeuristic). Verified that all algorithms correctly find the shortest path in a multi-node graph and handle edge cases (like distance to self).
 - Nov 5: Implemented C++ Templates in the actual logic by adding `PathResult<std::vector<Star*>>` to A*.
 - Nov 5: Implemented Exception Handling (`throw std::invalid_argument`) across all algorithms to catch null pointers and logical errors safely.
-- Oct 19: **BLOCKED**: Cannot compile or run full integration tests because `src/core/Star.h` and `StarMap.h` (Member A) are not yet in the repository. 
-- Oct 19: Note: Current unit tests are edge-case skeletons. Full graph-traversal tests will be added as soon as Member A pushes the Core module.
-
-- Oct 23: Group restructured. Member C and original Member A removed from the repository due to lack of contribution. Member B took over the Rendering module. A new Member A joined to take over the Core module.
-
