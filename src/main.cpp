@@ -18,18 +18,20 @@ int main() {
     renderer.init();
     Camera camera;
 
-    // 3. Create a dummy map for testing
+        // 3. Generate a random galaxy of 500 stars
     StarMap map;
-    Star* starA = new Star("A", glm::vec3(0, 0, -5), 1.0f, StarType::MainSequence);
-    Star* starB = new Star("B", glm::vec3(2, 1, -10), 1.0f, StarType::MainSequence);
-    Star* starC = new Star("C", glm::vec3(-2, -1, -15), 1.0f, StarType::MainSequence);
-    
-    map.addStar(starA);
-    map.addStar(starB);
-    map.addStar(starC);
-    map.addRoute(starA, starB);
-    map.addRoute(starB, starC);
+    for (int i = 0; i < 500; i++) {
+        float x = (rand() % 100 - 50) / 5.0f;
+        float y = (rand() % 100 - 50) / 5.0f;
+        float z = (rand() % 100 - 150) / 5.0f;
+        map.addStar(new Star("Star", glm::vec3(x, y, z), 1.0f, StarType::MainSequence));
+    }
 
+    // Pick two stars to find a path between
+    Star* starA = map.getAllStars()[0];
+    Star* starB = map.getAllStars()[499];
+    map.addRoute(starA, starB);
+    
     // 4. Run A* to find a path
     auto heuristic = std::make_unique<EuclideanHeuristic>();
     AStarPathfinder astar(std::move(heuristic));
