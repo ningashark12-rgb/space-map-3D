@@ -34,9 +34,9 @@ void Renderer::render(const std::vector<Star*>& stars,
     glm::mat4 view = camera.getViewMatrix();
     glLoadMatrixf(&view[0][0]);
 
-    // 3. Draw the stars as white dots
-    glPointSize(4.0f);
-    glColor3f(1.0f, 1.0f, 1.0f); // White
+        // 3. Draw the stars as bigger colored dots
+    glPointSize(10.0f);
+    glColor3f(1.0f, 0.8f, 0.2f); // Yellow/Gold color
     glBegin(GL_POINTS);
     for (Star* star : stars) {
         glm::vec3 pos = star->getPosition();

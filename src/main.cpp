@@ -9,8 +9,8 @@
 #include "render/Renderer.h"
 
 int main() {
-    // 1. Create a 1280x720 window
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "3D Space Map");
+    // 1. Create a 1280x720 window (SFML 3.0 syntax)
+    sf::RenderWindow window(sf::VideoMode({1280, 720}), "3D Space Map");
     window.setVerticalSyncEnabled(true);
 
     // 2. Initialize Renderer and Camera
@@ -18,7 +18,7 @@ int main() {
     renderer.init();
     Camera camera;
 
-    // 3. Create a dummy map for testing (Since we don't have the real StarData yet)
+    // 3. Create a dummy map for testing
     StarMap map;
     Star* starA = new Star("A", glm::vec3(0, 0, -5), 1.0f, StarType::MainSequence);
     Star* starB = new Star("B", glm::vec3(2, 1, -10), 1.0f, StarType::MainSequence);
@@ -37,17 +37,17 @@ int main() {
 
     // 5. Main Game Loop
     while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
+        // SFML 3.0 event loop
+        while (const std::optional event = window.pollEvent()) {
+            if (event->is<sf::Event::Closed>())
                 window.close();
         }
 
-        // Handle WASD movement
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) camera.moveForward(0.1f);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) camera.moveForward(-0.1f);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) camera.moveRight(-0.1f);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) camera.moveRight(0.1f);
+        // Handle WASD movement (SFML 3.0 uses Key:: instead of just the letter)
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) camera.moveForward(0.1f);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) camera.moveForward(-0.1f);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) camera.moveRight(-0.1f);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) camera.moveRight(0.1f);
 
         // Render everything
         renderer.render(map.getAllStars(), path, camera);
