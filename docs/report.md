@@ -273,3 +273,10 @@ This appendix documents the actual development timeline and individual contribut
 - Nov 5: **Successfully compiled and passed all 5 unit tests** (AStar, Dijkstra, BFS, EuclideanHeuristic). Verified that all algorithms correctly find the shortest path in a multi-node graph and handle edge cases (like distance to self).
 - Nov 5: Implemented C++ Templates in the actual logic by adding `PathResult<std::vector<Star*>>` to A*.
 - Nov 5: Implemented Exception Handling (`throw std::invalid_argument`) across all algorithms to catch null pointers and logical errors safely.
+- Nov 6: Built the Rendering module from scratch using OOP. Created the `Camera` class to handle 3D WASD movement and View Matrices.
+- Nov 6: Created the `Renderer` class using OpenGL to draw the 3D starfield and visualize the A* path as a green line.
+- Nov 6: Wrote a custom `main.cpp` game loop to tie the Pathfinding, Rendering, and UI together. Successfully rendered 1000+ stars in 3D space.
+- Nov 8: Implemented real-time Mouse Click Selection using 3D-to-2D projection math (Raycasting).
+- Nov 8: Implemented a dynamic UI panel using SFML Text, displaying the calculated path distance in real-time when a star is clicked.
+- Nov 8: Added 3D Star Labels by projecting 3D coordinates to 2D screen space.
+- Nov 8: Successfully compiled and ran a fully interactive 3D application: User can fly with WASD, click any star, and watch the A* algorithm draw the shortest path and calculate the distance.
