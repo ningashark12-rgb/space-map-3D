@@ -4,8 +4,11 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
-#include "algorithm"
-#include "vector"
+#include <algorithm>
+#include <vector>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include "core/StarMap.h"
 #include "pathfinding/AStarPathfinder.h"
@@ -31,15 +34,21 @@ int main() {
         float x = (rand() % 200 - 100) / 2.0f;
         float y = (rand() % 200 - 100) / 2.0f;
         float z = -(rand() % 200) / 2.0f - 5.0f;
-        map.addStar(new Star("Star", glm::vec3(x, y, z), 1.0f, StarType::MainSequence));
+        
+        // Give some stars different names to make it look cool
+        std::string starName = "Star";
+        if (i % 10 == 0) starName = "Sun";
+        else if (i % 7 == 0) starName = "Nova";
+        else if (i % 5 == 0) starName = "Vega";
+        
+        map.addStar(new Star(starName + " " + std::to_string(i), glm::vec3(x, y, z), 1.0f, StarType::MainSequence));
     }
 
-    // 2. Connect each star to its 3 closest neighbors (creates a realistic space map)
+    // 2. Connect each star to its 3 closest neighbors
     auto allStars = map.getAllStars();
     for (size_t i = 0; i < allStars.size(); i++) {
         Star* current = allStars[i];
         
-        // Find neighbors and sort by distance
         std::vector<std::pair<float, Star*>> distances;
         for (size_t j = 0; j < allStars.size(); j++) {
             if (i == j) continue;
@@ -47,7 +56,6 @@ int main() {
         }
         std::sort(distances.begin(), distances.end());
 
-        // Connect to the 3 closest stars
         for (int k = 0; k < 3 && k < distances.size(); k++) {
             map.addRoute(current, distances[k].second);
         }
@@ -69,6 +77,10 @@ int main() {
     sf::Text uiText(font, "Left Click to Find Path", 20);
     uiText.setFillColor(sf::Color::White);
     uiText.setPosition({10.0f, 10.0f});
+
+    // Star label text setup
+    sf::Text starText(font, "", 12);
+    starText.setFillColor(sf::Color(150, 200, 255)); // Light blue
 
     // 4. Main Game Loop
     while (window.isOpen()) {
@@ -105,10 +117,39 @@ int main() {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) camera.moveRight(-0.1f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) camera.moveRight(0.1f);
 
+        // Render 3D
         renderer.render(map.getAllStars(), path, camera);
 
+        // Render 2D UI and Star Labels
         window.pushGLStates(); 
         window.draw(uiText);
+
+        // Project 3D stars to 2D screen for labels
+        glm::mat4 view = camera.getViewMatrix();
+        float aspect = 1280.0f / 720.0f;
+        glm::mat4 projection = glm::perspective(glm::radians(45.0f), aspect, 0.1f, 100.0f);
+
+        // Only loop through the first 100 stars so the text doesn't lag the game
+        for (int i = 0; i < 100 && i < map.getAllStars().size(); i++) {
+            Star* star = map.getAllStars()[i];
+            glm::vec3 pos = star->getPosition();
+
+            glm::vec4 clipSpace = projection * view * glm::vec4(pos, 1.0f);
+            if (clipSpace.w > 0.0f) {
+                glm::vec3 ndc = glm::vec3(clipSpace) / clipSpace.w;
+                float screenX = (ndc.x + 1.0f) * 0.5f * 1280.0f;
+                float screenY = (1.0f - ndc.y) * 0.5f * 720.0f;
+                starText.setPosition({screenX + 10.0f, screenY - 10.0f});
+                
+                if (star->getName().find("Star") == std::string::npos) {
+                    // Only draw labels for the special stars (Sun, Nova, Vega)
+                    // If you want all stars to have labels, just remove this 'if'
+                    starText.setString(star->getName());
+                    window.draw(starText);
+                }
+            }
+        }
+
         window.popGLStates();  
 
         window.display();
