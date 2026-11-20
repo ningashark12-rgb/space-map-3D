@@ -1,18 +1,25 @@
 #pragma once
-#include <string>
+
+#include "CelestialObject.h"
+
 #include <glm/glm.hpp>
+#include <string>
 
-enum class StarType { MainSequence, RedGiant, WhiteDwarf, NeutronStar };
+enum class StarType {
+    MainSequence,
+    RedGiant,
+    WhiteDwarf,
+    NeutronStar
+};
 
-class Star {
+class Star : public CelestialObject {
 public:
-    Star(std::string name, glm::vec3 position, float mass, StarType type)
-        : name_(name), position_(position), mass_(mass), type_(type) {}
+    Star(std::string name, glm::vec3 position, float mass, StarType type);
 
-    glm::vec3 getPosition() const { return position_; }
-    std::string getName() const { return name_; }
-    float getMass() const { return mass_; }
-    StarType getType() const { return type_; }
+    glm::vec3 getPosition() const override;
+    std::string getName() const override;
+    float getMass() const;
+    StarType getType() const;
 
 private:
     std::string name_;
