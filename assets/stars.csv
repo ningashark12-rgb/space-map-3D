@@ -1,0 +1,6 @@
+name,x,y,z,mass,type
+Sol,0,0,0,1.0,MainSequence
+Alpha_Centauri,4.37,0.2,0.1,1.1,MainSequence
+Betelgeuse,20,15,-8,15.0,RedGiant
+Sirius,-8,3,2,2.0,MainSequence
+Procyon,12,-4,6,1.5,WhiteDwarf

@@ -1,37 +1,32 @@
 #pragma once
-#include <vector>
-#include <unordered_map>
-#include <optional>
+
 #include "Star.h"
+
+#include <memory>
+#include <optional>
+#include <unordered_map>
+#include <vector>
 
 class StarMap {
 public:
-    void addStar(Star* star) { stars_.push_back(star); }
-    
-    void addRoute(Star* a, Star* b) {
-        adjacency_[a].push_back(b);
-        adjacency_[b].push_back(a); 
-    }
+    // Pathfinding interface used by Member B.
+    std::vector<Star*> getNeighbors(Star* star) const;
+    float getDistance(Star* a, Star* b) const;
+    std::vector<Star*> getAllStars() const;
 
-    std::vector<Star*> getNeighbors(Star* star) const {
-        auto it = adjacency_.find(star);
-        if (it != adjacency_.end()) return it->second;
-        return {};
-    }
+    // Rendering / selection interface.
+    std::optional<Star*> findByName(const std::string& name) const;
+    Star* findNearest(const glm::vec3& position) const;
 
-    float getDistance(Star* a, Star* b) const {
-        glm::vec3 diff = a->getPosition() - b->getPosition();
-        return glm::length(diff); 
-    }
+    // Setup interface.
+    void addStar(std::unique_ptr<Star> star);
+    void addRoute(Star* a, Star* b);
 
-    std::vector<Star*> getAllStars() const { return stars_; }
-
-    std::optional<Star*> findByName(const std::string& name) const {
-        for (auto* s : stars_) if (s->getName() == name) return s;
-        return std::nullopt;
-    }
+    // Convenience query; does not transfer ownership.
+    bool contains(const Star* star) const;
+    std::size_t size() const noexcept;
 
 private:
-    std::vector<Star*> stars_;
+    std::vector<std::unique_ptr<Star>> stars_;
     std::unordered_map<Star*, std::vector<Star*>> adjacency_;
 };
